@@ -1,11 +1,12 @@
 print('Setting UP')
 import os
+import sys
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from utils import *
 import sudoku_solver
 
 ########################################################################
-pathImage = "Resources/1.jpg"
+pathImage = sys.argv[1]
 heightImg = 450
 widthImg = 450
 model = intializePredectionModel()  # LOAD THE CNN MODEL
@@ -60,9 +61,12 @@ if biggest.size != 0:
         pass
     print(board)
     flatList = []
+    print("Solution is: ")
     for sublist in board:
         for item in sublist:
+            print(item, end=" ")
             flatList.append(item)
+        print()
     solvedNumbers =flatList*posArray
     imgSolvedDigits= displayNumbers(imgSolvedDigits,solvedNumbers)
 
@@ -78,7 +82,7 @@ if biggest.size != 0:
 
     imageArray = ([img, inv_perspective])
     stackedImage = stackImages(imageArray, 1)
-    cv2.imshow('Solved Board', stackedImage)
+    cv2.imshow('Stacked Images', stackedImage)
 
 else:
     print("No Sudoku Found")
