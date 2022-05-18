@@ -76,10 +76,9 @@ if biggest.size != 0:
     imgDetectedDigits = drawGrid(imgDetectedDigits)
     imgSolvedDigits = drawGrid(imgSolvedDigits)
 
-    imageArray = ([img,imgThreshold,imgContours, imgBigContour],
-                  [imgDetectedDigits, imgSolvedDigits,imgInvWarpColored,inv_perspective])
+    imageArray = ([img, inv_perspective])
     stackedImage = stackImages(imageArray, 1)
-    cv2.imshow('Stacked Images', stackedImage)
+    cv2.imshow('Solved Board', stackedImage)
 
 else:
     print("No Sudoku Found")
