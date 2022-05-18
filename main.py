@@ -1,8 +1,8 @@
 print('Setting UP')
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-from utlis import *
-import sudukoSolver
+from utils import *
+import sudoku_solver
 
 ########################################################################
 pathImage = "Resources/1.jpg"
@@ -55,7 +55,7 @@ if biggest.size != 0:
     board = np.array_split(numbers,9)
     print(board)
     try:
-        sudukoSolver.solve(board)
+        sudoku_solver.solve(board)
     except:
         pass
     print(board)
